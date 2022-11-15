@@ -5,6 +5,7 @@ import requests
 import datetime
 import random
 import csv
+import sys
 
 key = 'YOUR_API_KEY'
 secret = 'YOUR_API_SECRET'
@@ -17,7 +18,13 @@ TIMEOUT_IN_SECONDS = 10
 def send_msg(msg):
     dt = datetime.datetime.now()
     nonce = str(int((time.mktime(dt.timetuple()) + dt.microsecond / 1000000.0) * 1000000))
-    signature = hmac.new(secret, nonce, digestmod=hashlib.sha256).hexdigest()
+    # TODO: Remove python2 code
+    # hmac.new changed to using bytes, these gives equivalent results
+    if sys.version_info[0] == 2:
+        # noinspection PyTypeChecker
+        signature = hmac.new(secret, nonce, digestmod=hashlib.sha256).hexdigest()
+    else:
+        signature = hmac.new(secret.encode(), nonce.encode(), digestmod=hashlib.sha256).hexdigest()
     headers = {
         'user-agent': 'blinktrade_tools/0.1',
         'Content-Type': 'application/json',
