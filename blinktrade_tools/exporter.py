@@ -196,7 +196,7 @@ def main():
 
     f = open('./' + key + '.csv', 'wt')
     headers = ['Date', 'Reference', 'Description', 'Currency', 'Operation', 'Total']
-    headers.extend(balance_dict.keys())
+    headers.extend(list(balance_dict.keys()))
     try:
         writer = csv.DictWriter(f, fieldnames=headers)
         writer.writerow(dict((n, n) for n in headers))

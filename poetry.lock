@@ -107,6 +107,17 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "fissix"
+version = "21.11.13"
+description = "Monkeypatches to override default behavior of lib2to3."
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+appdirs = "*"
+
+[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -170,6 +181,21 @@ description = "McCabe checker, plugin for flake8"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
+
+[[package]]
+name = "modernize"
+version = "0.8.0"
+description = "A hack on top of fissix (lib2to3 fork) for modernizing code for hybrid codebases."
+category = "dev"
+optional = false
+python-versions = "~=3.6"
+
+[package.dependencies]
+fissix = "*"
+
+[package.extras]
+docs = ["sphinx (>=3.2,<4.0)"]
+test = ["coverage (>=5.3)", "pytest", "pytest-cov"]
 
 [[package]]
 name = "mypy"
@@ -386,6 +412,25 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "types-requests"
+version = "2.28.11.4"
+description = "Typing stubs for requests"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+types-urllib3 = "<1.27"
+
+[[package]]
+name = "types-urllib3"
+version = "1.26.25.3"
+description = "Typing stubs for urllib3"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "typing-extensions"
 version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -429,7 +474,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8, <3.11"
-content-hash = "6a322bccd8e172a4ce2cd569967a8a84519e26a234c84d6d606dec6b24fdda22"
+content-hash = "3404c78e37744bda8d2c49b3be52f1754d21444d03595b3bdd7b0ce61329de67"
 
 [metadata.files]
 appdirs = [
@@ -471,6 +516,10 @@ dill = [
 distlib = [
     {file = "distlib-0.3.6-py2.py3-none-any.whl", hash = "sha256:f35c4b692542ca110de7ef0bea44d73981caeb34ca0b9b6b2e6d7790dda8f80e"},
     {file = "distlib-0.3.6.tar.gz", hash = "sha256:14bad2d9b04d3a36127ac97f30b12a19268f211063d8f8ee4f47108896e11b46"},
+]
+fissix = [
+    {file = "fissix-21.11.13-py3-none-any.whl", hash = "sha256:55cd7541944bd15cfd8b0b2117fd63b84dcce5e3780ff7f77894059a87e5243a"},
+    {file = "fissix-21.11.13.tar.gz", hash = "sha256:496a51b86afb4c64cf15cfed38a0f3a371f300b298c962c881e33620f076a514"},
 ]
 idna = [
     {file = "idna-3.4-py3-none-any.whl", hash = "sha256:90b77e79eaa3eba6de819a0c442c0b4ceefc341a7a2ab77d7562bf49f425c5c2"},
@@ -540,6 +589,10 @@ libcst = [
 mccabe = [
     {file = "mccabe-0.7.0-py2.py3-none-any.whl", hash = "sha256:6c2d30ab6be0e4a46919781807b4f0d834ebdd6c6e3dca0bda5a15f863427b6e"},
     {file = "mccabe-0.7.0.tar.gz", hash = "sha256:348e0240c33b60bbdf4e523192ef919f28cb2c3d7d5c7794f74009290f236325"},
+]
+modernize = [
+    {file = "modernize-0.8.0-py2.py3-none-any.whl", hash = "sha256:b51f930ac9d726903f2c7f9038146d6061a14509140d6e4498827b19b5610120"},
+    {file = "modernize-0.8.0.tar.gz", hash = "sha256:1672b4bb19a060a53dd0518cc8f70fc83591c7246e532223459f85d338c60f55"},
 ]
 mypy = [
     {file = "mypy-0.991-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:7d17e0a9707d0772f4a7b878f04b4fd11f6f5bcb9b3813975a9b13c9332153ab"},
@@ -699,6 +752,14 @@ tomli = [
 tomlkit = [
     {file = "tomlkit-0.11.6-py3-none-any.whl", hash = "sha256:07de26b0d8cfc18f871aec595fda24d95b08fef89d147caa861939f37230bf4b"},
     {file = "tomlkit-0.11.6.tar.gz", hash = "sha256:71b952e5721688937fb02cf9d354dbcf0785066149d2855e44531ebdd2b65d73"},
+]
+types-requests = [
+    {file = "types-requests-2.28.11.4.tar.gz", hash = "sha256:d4f342b0df432262e9e326d17638eeae96a5881e78e7a6aae46d33870d73952e"},
+    {file = "types_requests-2.28.11.4-py3-none-any.whl", hash = "sha256:bdb1f9811e53d0642c8347b09137363eb25e1a516819e190da187c29595a1df3"},
+]
+types-urllib3 = [
+    {file = "types-urllib3-1.26.25.3.tar.gz", hash = "sha256:1807b87b8ee1ae0226813ba2c52330eff20fb2bf6359b1de24df08eb3090e442"},
+    {file = "types_urllib3-1.26.25.3-py3-none-any.whl", hash = "sha256:a188c24fc61a99658c8c324c8dd7419f5b91a0d89df004e5f576869122c1db55"},
 ]
 typing-extensions = [
     {file = "typing_extensions-4.4.0-py3-none-any.whl", hash = "sha256:16fa4864408f655d35ec496218b85f79b3437c829e93320c7c9215ccfd92489e"},
