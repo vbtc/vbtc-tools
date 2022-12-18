@@ -71,7 +71,7 @@ def get_ledger_history():
                     page += 1
 
                 for ledger_array_record in ledger_list:
-                    ledger_record = dict(zip(response['Columns'], ledger_array_record))
+                    ledger_record = dict(list(zip(response['Columns'], ledger_array_record)))
                     ledger_history.insert(0, ledger_record)
     return ledger_history
 
