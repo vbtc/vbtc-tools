@@ -9,10 +9,8 @@ license="GPL-3.0-or-later"
 
 [tool.poetry.dependencies]
 python = "^3.8, <3.11"
-requests = "~2.27.1"
+requests = "~2.28.1"
 appdirs = "^1.4.4"
-
-[tool.poetry.dev-dependencies]
 
 [tool.poetry.group.dev.dependencies]
 caniusepython3 = "^7.3.0"
